@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using TheWeatherApp.Models;
 
 namespace WeatherApp.ViewModels
 {
@@ -16,6 +17,32 @@ namespace WeatherApp.ViewModels
                 OnPropChange();
             }
         }
+
+        private CurrentConditions _currentConditions;
+
+        public CurrentConditions CurrentConditions
+        {
+            get { return _currentConditions; }
+            set
+            {
+                _currentConditions = value;
+                OnPropChange();
+            }
+        }
+
+        private City _selectedCity;
+
+        public City SelectedCity
+        {
+            get { return _selectedCity; }
+            set
+            {
+                _selectedCity = value;
+                OnPropChange();
+            }
+        }
+
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;
