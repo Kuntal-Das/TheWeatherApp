@@ -1,6 +1,6 @@
-﻿using System.ComponentModel;
+﻿using AccWeatherHelper.Models;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using TheWeatherApp.Models;
 
 namespace WeatherApp.ViewModels
 {
@@ -50,25 +50,7 @@ namespace WeatherApp.ViewModels
 
         public WeatherViewModel()
         {
-            if (DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
-            {
-                SelectedCity = new()
-                {
-                    LocalizedName = "New York"
-                };
-
-                CurrentConditions = new()
-                {
-                    WeatherText = "Partly cloudy",
-                    Temperature = new()
-                    {
-                        Metric = new()
-                        {
-                            Value = 21
-                        }
-                    }
-                };
-            }
+            
         }
 
 
