@@ -1,4 +1,4 @@
-﻿namespace TheWeatherApp.Models
+﻿namespace AccWeatherHelper.Models
 {
     public class Units
     {

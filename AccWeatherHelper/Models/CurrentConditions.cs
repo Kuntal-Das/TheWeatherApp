@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TheWeatherApp.Models
+namespace AccWeatherHelper.Models
 {
     public class CurrentConditions
     {
