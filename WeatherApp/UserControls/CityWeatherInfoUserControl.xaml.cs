@@ -39,7 +39,7 @@ namespace WeatherApp.UserControls
                     {
                         Metric = new Units()
                         {
-                            Value = 21
+                            Value = "21"
                         }
                     }
                 };
@@ -83,6 +83,8 @@ namespace WeatherApp.UserControls
             CityWeatherInfoUserControl cityWeatherInfoUserControl = d as CityWeatherInfoUserControl;
             cityWeatherInfoUserControl.WeatherTextBlock.Text = (e.NewValue as CurrentConditions).WeatherText;
             cityWeatherInfoUserControl.TemperatureTextBlock.Text = $"{(e.NewValue as CurrentConditions).Temperature.Metric.Value}℃";
+            cityWeatherInfoUserControl.PercipitationTextBlock.Text =
+                ((e.NewValue as CurrentConditions).HasPercipitation) ? "Currently Raining" : "Currently Not Raining";
         }
     }
 }

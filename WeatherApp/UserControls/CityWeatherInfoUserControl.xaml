@@ -21,6 +21,10 @@
                        Foreground="#f4f4f8"
                        FontSize="18"
                        Margin="20,0"/>
+            <TextBlock x:Name="PercipitationTextBlock"
+                       Foreground="#f4f4f8"
+                       FontSize="16"
+                       Margin="20,0"/>
         </StackPanel>
         <TextBlock x:Name="TemperatureTextBlock"
                    Grid.Column="1"
