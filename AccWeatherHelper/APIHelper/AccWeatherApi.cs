@@ -5,15 +5,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AccWeatherHelper.APIHelper
 {
     public class AccWeatherApi
     {
-        private static readonly string API_KEY = Environment.GetEnvironmentVariable("AccWeather:KEY");
+        private static readonly string API_KEY;
         private static readonly string BaseUrl = @"http://dataservice.accuweather.com/";
-        private static string AutoCompleteEndPoint = @"locations/v1/cities/autocomplete/apikey={0}&Q={1}";
-        private static string CurrentConditionsEndPoint = @"currentconditions/v1/{0}/apikey={1}";
+        private static string AutoCompleteEndPoint = @"locations/v1/cities/autocomplete?apikey={0}&q={1}";
+        private static string CurrentConditionsEndPoint = @"currentconditions/v1/{0}?apikey={1}&details=false";
+
+        static AccWeatherApi()
+        {
+            API_KEY = Environment.GetEnvironmentVariable("ACCKEY");
+            if (API_KEY is null) API_KEY = "c8VMGt7cXij6WQmRkjy0s8KysOPflOOY";
+        }
 
         public static async Task<List<City>> GetCitiesAsync(string query)
         {

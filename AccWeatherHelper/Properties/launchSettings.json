@@ -1,0 +1,10 @@
+{
+    "profiles": {
+        "AccWeatherHelper": {
+            "commandName": "Project",
+            "environmentVariables": {
+                "ACCKEY": "c8VMGt7cXij6WQmRkjy0s8KysOPflOOY"
+            }
+        }
+    }
+}
