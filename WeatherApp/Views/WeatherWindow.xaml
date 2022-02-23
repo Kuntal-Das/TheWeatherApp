@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WeatherApp.Views"
         xmlns:vm="clr-namespace:WeatherApp.ViewModels"
         xmlns:uc="clr-namespace:WeatherApp.UserControls"
+        xmlns:conv="clr-namespace:WeatherApp.Converters"
         mc:Ignorable="d"
         Title="WeatherWindow" Height="450" Width="350">
     <Window.Resources>
@@ -23,21 +24,30 @@
         <uc:CityWeatherInfoUserControl 
             Grid.Row="0"
             City="{Binding SelectedCity}"
-            CurrentConditions="{Binding CurrentConditions}"/>
-        
-        <TextBox Text="{Binding CityQuery, Mode=TwoWay}"
+            CurrentConditions="{Binding CurrentConditions}"
+            Margin="0,0,0,10"/>
+
+        <TextBox Text="{Binding CityQuery, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  Grid.Row="1"
                  Margin="0,0,0,10"/>
         <Button Grid.Row="2"
+                Command="{Binding SearchCityCommand}"
+                CommandParameter="{Binding CityQuery}"
                 Margin="0,0,0,10">Search</Button>
-        
+
         <ListView Grid.Row="3"
+                  ItemsSource="{Binding Cities}"
+                  SelectedValue="{Binding SelectedCity}"
                   Margin="0,0,0,10">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
-                        <TextBlock/>
-                    </Grid>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding LocalizedName}"/>
+                        <TextBlock>, </TextBlock>
+                        <TextBlock Text="{Binding AdministrativeArea.LocalizedName}"/>
+                        <TextBlock>, </TextBlock>
+                        <TextBlock Text="{Binding Country.LocalizedName}"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
